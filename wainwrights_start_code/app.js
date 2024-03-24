@@ -7,14 +7,18 @@ const getAllWainWrights = async () => {
     //Returns response as JSON
     const jsonData = await response.json();
     console.log(jsonData);
-    //foreach loop
+    //foreach loop for name
     jsonData.forEach((data) => {
         //Created new list element
-        const newListElem = document.createElement("li");
+        const newListElem = document.createElement("h2");
+        const newHeightElem = document.createElement("h4");
+        const newAreaElem = document.createElement("p");
         //Added data to list
-        newListElem.innerText = data.name;
+        newListElem.innerText = "Name: " + data.name;
+        newHeightElem.innerText = "Height: " + data.heightMetres + "m";
+        newAreaElem.innerText = "Area: " + data.area.areaName;
         //Added new list element to list
-        wainwrightsList.appendChild(newListElem);
+        wainwrightsList.append(newListElem, newHeightElem, newAreaElem);
     });
 
 }
